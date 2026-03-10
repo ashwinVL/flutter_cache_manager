@@ -94,7 +94,7 @@ class WebHelper {
     )
         : cacheObject.copyWith(url: url);
     final response = await _download(cacheObject, authHeaders);
-    var urlExtension = url.substring(url.lastIndexOf("."), url.length);
+    var urlExtension = url.split("?").first.substring(url.lastIndexOf("."), url.length);
     yield* _manageResponse(cacheObject, response, urlExtension);
   }
 
